@@ -25,6 +25,11 @@ Installs the Elastic repository for version 5.x packages.
 
 Installs the filebeat package and enables the relative systemd unit.
 
+``beats.filebeat.config``
+-------------------------
+
+Configure filebeats by reading from ``beats:filebeat:config`` pillar key.
+
 ``beats.filebeat.purge``
 ------------------------
 
