@@ -7,7 +7,7 @@ remove_elastic_repository:
 {% elif salt['grains.get']('os_family') == 'RedHat' %}
 
 remove_elastic_repository:
-    pkgrepo.managed:
+    pkgrepo.absent:
         - name: elastic
 
 {% endif %}
