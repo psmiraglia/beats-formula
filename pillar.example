@@ -1,0 +1,42 @@
+beats:
+    filebeat:
+        config:
+            filebeat.prospectors:
+                - input_type: log
+                  paths:
+                    - /var/log/*.log
+            output.elasticsearch:
+                hosts: ["localhost:9200"]
+            logging.to_files: true
+            logging.files:
+                path: /var/log/filebeat
+                name: filebeat
+                rotateeverybytes: 10485760
+                keepfiles: 7
+    metricbeat:
+        config:
+            cbeat.config.modules:
+                path: ${path.config}/conf.d/*.yml
+                reload.period: 10s
+                reload.enabled: false
+            metricbeat.modules:
+                - module: system
+                  metricsets:
+                    - cpu
+                    - load
+                    - filesystem
+                    - fsstat
+                    - memory
+                    - network
+                    - process
+                  enabled: true
+                  period: 10s
+                  processes: ['.*']
+            output.elasticsearch:
+                hosts: ["localhost:9200"]
+            logging.to_files: true
+            logging.files:
+                path: /var/log/metricbeat
+                name: metricbeat
+                rotateeverybytes: 10485760
+                keepfiles: 7
