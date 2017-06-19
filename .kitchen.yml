@@ -9,6 +9,7 @@ provisioner:
     formula: beats
     salt_install: bootstrap
     salt_bootstrap_options: -X stable
+    salt_bootstrap_url: https://raw.githubusercontent.com/saltstack/salt-bootstrap/stable/bootstrap-salt.sh
     require_chef: false
     state_top:
         base:
@@ -16,9 +17,11 @@ provisioner:
                 - beats.repository
                 - beats.filebeat.install
                 - beats.filebeat.config
+                - beats.filebeat.service
                 - beats.filebeat.purge
                 - beats.metricbeat.install
                 - beats.metricbeat.config
+                - beats.metricbeat.service
                 - beats.metricbeat.purge
                 - beats.purge
 

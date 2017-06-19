@@ -28,7 +28,12 @@ Installs the Filebeat package and enables the relative systemd unit.
 ``beats.filebeat.config``
 -------------------------
 
-Configure Filebeat by reading from ``beats:filebeat:config`` pillar key.
+Configures Filebeat by reading from ``beats:filebeat:config`` pillar key.
+
+``beats.filebeat.service``
+--------------------------
+
+Runs and enables the Filebeat service.
 
 ``beats.filebeat.purge``
 ------------------------
@@ -43,7 +48,12 @@ Installs the Metricbeat package and enables the relative systemd unit.
 ``beats.metricbeat.config``
 ---------------------------
 
-Configure Metricbeat by reading from ``beats:metricbeat:config`` pillar key.
+Configures Metricbeat by reading from ``beats:metricbeat:config`` pillar key.
+
+``beats.metricbeat.service``
+----------------------------
+
+Runs and enables the Metricbeat service.
 
 ``beats.metricbeat.purge``
 --------------------------
