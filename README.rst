@@ -23,7 +23,7 @@ Installs the Elastic repository for version 5.x packages.
 ``beats.filebeat.install``
 --------------------------
 
-Installs the Filebeat package and enables the relative systemd unit.
+Installs the Filebeat package.
 
 ``beats.filebeat.config``
 -------------------------
@@ -43,7 +43,7 @@ Purges the environment created by ``beats.filebeat.*`` states.
 ``beats.metricbeat.install``
 ----------------------------
 
-Installs the Metricbeat package and enables the relative systemd unit.
+Installs the Metricbeat package.
 
 ``beats.metricbeat.config``
 ---------------------------

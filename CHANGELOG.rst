@@ -2,6 +2,11 @@
 beats-formula
 =============
 
+0.0.3 (2017-09-06)
+
+- State to manage [File, Metric]beat daemon (c28c185)
+- Testing with Travis/Kitchen (ba2bbe8)
+
 0.0.2 (2017-06-14)
 
 - Added Metricbeat configuration state (8eb5ce9)
