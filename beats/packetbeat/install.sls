@@ -10,8 +10,12 @@ packetbeat_install:
 
 # Enable the packetbeat systemd unit
 packetbeat_enabled:
-    service.enabled:
+    service.running:
         - name: packetbeat
+        - enable: True
         - require:
             - pkg: packetbeat_install
-
+        {% if salt['pillar.get']('beats:packetbeat:config', {}) %}
+        - watch:
+            - file: /etc/packetbeat/packetbeat.yml
+        {% endif %}

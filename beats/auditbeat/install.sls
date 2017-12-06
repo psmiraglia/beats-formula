@@ -10,7 +10,12 @@ auditbeat_install:
 
 # Enable the auditbeat systemd unit
 auditbeat_enabled:
-    service.enabled:
+    service.running:
         - name: auditbeat
+        - enable: True
         - require:
             - pkg: auditbeat_install
+        {% if salt['pillar.get']('beats:auditbeat:config', {}) %}
+        - watch:
+            - file: /etc/auditbeat/auditbeat.yml
+        {% endif %}
