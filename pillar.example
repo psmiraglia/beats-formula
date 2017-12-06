@@ -40,3 +40,53 @@ beats:
                 name: metricbeat
                 rotateeverybytes: 10485760
                 keepfiles: 7
+    auditbeat:
+        config:
+          auditbeat.modules:
+            - module: audit
+              metricsets: [file]
+              file.paths:
+                - /bin
+                - /usr/bin
+                - /sbin
+                - /usr/sbin
+                - /etc
+          output.logstash:
+            hosts: ["localhost:9200"]
+            logging.to_files: false
+    packetbeat:
+        config:
+            packetbeat.interfaces.device: any
+            packetbeat.flows:
+              timeout: 30s
+              period: 10s
+            packetbeat.protocols.icmp:
+              enabled: true
+            packetbeat.protocols.amqp:
+              ports: [5672]
+            packetbeat.protocols.cassandra:
+              ports: [9042]
+            packetbeat.protocols.dns:
+              ports: [53]
+              include_authorities: true
+              include_additionals: true
+            packetbeat.protocols.http:
+              ports: [80, 8080, 8000, 5000, 8002, 8443, 443]
+            packetbeat.protocols.memcache:
+              ports: [11211]
+            packetbeat.protocols.mysql:
+              ports: [3306]
+            packetbeat.protocols.pgsql:
+              ports: [5432]
+            packetbeat.protocols.redis:
+              ports: [6379]
+            packetbeat.protocols.thrift:
+              ports: [9090]
+            packetbeat.protocols.mongodb:
+              ports: [27017]
+            packetbeat.protocols.nfs:
+              ports: [2049]
+            output.logstash:
+              hosts: ["localhost:9200"]
+            logging.to_files: false
+    

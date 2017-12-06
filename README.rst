@@ -20,6 +20,10 @@ Available states
 
 Installs the Elastic repository for version 5.x packages.
 
+``beats.installAll``
+---------------------
+Installs Auditbeat, Packetbeat, Filebeat, Metricbeat. Adds the Configs and enables the services.
+
 ``beats.filebeat.install``
 --------------------------
 
@@ -43,12 +47,43 @@ Installs the Metricbeat package and enables the relative systemd unit.
 ``beats.metricbeat.config``
 ---------------------------
 
-Configure Metricbeat by reading from ``beats:metricbeat:config`` pillar key.
+Configure metricbeat by reading from ``beats:metricbeat:config`` pillar key.
 
 ``beats.metricbeat.purge``
 --------------------------
 
-Purges the environment created by ``beats.metricbeat.*`` states.
+Purges the environment created by ``beats.packetbeat.*`` states.
+
+``beats.packetbeat.install``
+----------------------------
+
+Installs the packetbeat package and enables the relative systemd unit.
+
+``beats.packetbeat.config``
+---------------------------
+
+Configure packetbeat by reading from ``beats:packetbeat:config`` pillar key.
+
+``beats.packetbeat.purge``
+--------------------------
+
+Purges the environment created by ``beats.packetbeat.*`` states.
+
+``beats.auditbeat.install``
+----------------------------
+
+Installs the auditbeat package and enables the relative systemd unit.
+
+``beats.auditbeat.config``
+---------------------------
+
+Configure auditbeat by reading from ``beats:auditbeat:config`` pillar key.
+
+``beats.auditbeat.purge``
+--------------------------
+
+Purges the environment created by ``beats.auditbeat.*`` states.
+
 
 References
 ==========
