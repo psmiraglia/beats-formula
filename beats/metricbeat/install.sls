@@ -10,7 +10,12 @@ metricbeat_install:
 
 # Enable the metricbeat systemd unit
 metricbeat_enabled:
-    service.enabled:
+    service.running:
         - name: metricbeat
+        - enable: True
         - require:
             - pkg: metricbeat_install
+        {% if salt['pillar.get']('beats:metricbeat:config', {}) %}
+        - watch:
+            - file: /etc/metricbeat/metricbeat.yml
+        {% endif %}
