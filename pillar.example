@@ -1,4 +1,5 @@
 beats:
+    version: 6
     filebeat:
         config:
             filebeat.prospectors:
