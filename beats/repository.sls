@@ -6,7 +6,7 @@ add_elastic_repository:
         - name: apt-transport-https
 
     pkgrepo.managed:
-        - name: deb https://artifacts.elastic.co/packages/' ~ {{ version }} ~ '.x/apt stable main
+        - name: deb https://artifacts.elastic.co/packages/{{ version }}.x/apt stable main
         - file: /etc/apt/sources.list.d/elastic.list
         - gpgcheck: 1
         - key_url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
@@ -18,8 +18,8 @@ add_elastic_repository:
 add_elastic_repository:
     pkgrepo.managed:
         - name: elastic
-        - humanname: "Elastic repository for ' ~ {{ version }} ~ '.x packages"
-        - baseurl: https://artifacts.elastic.co/packages/' ~ {{ version }} ~ '.x/yum
+        - humanname: "Elastic repository for " ~ {{ version }} ~ ".x packages"
+        - baseurl: https://artifacts.elastic.co/packages/{{ version }}.x/yum
         - gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
         - gpgcheck: 1
         - disabled: False
