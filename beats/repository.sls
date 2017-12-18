@@ -1,4 +1,4 @@
-{%- set version = pillar.get('beats:version', '5') %}
+{%- set version = salt['pillar.get']('beats:version', '5') %}
 {% if salt['grains.get']('os_family') == 'Debian' %}
 
 add_elastic_repository:
