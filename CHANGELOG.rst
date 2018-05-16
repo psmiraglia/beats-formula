@@ -2,6 +2,12 @@
 beats-formula
 =============
 
+0.1.0 (2018-05-16)
+
+- Added management of community beats
+- Added Journalbeat
+- Fix versioning
+
 0.0.4 (2018-05-09)
 
 - Added option to disable upstream repositories
