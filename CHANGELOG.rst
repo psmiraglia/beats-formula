@@ -2,6 +2,10 @@
 beats-formula
 =============
 
+0.1.1 (2018-07-06)
+
+- Fix `journalbeat` pillar merge
+
 0.1.0 (2018-05-16)
 
 - Added management of community beats
